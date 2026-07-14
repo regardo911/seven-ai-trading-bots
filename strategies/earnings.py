@@ -126,7 +126,7 @@ def build_order(ticker: str, direction: str, magnitude: float, date: pd.Timestam
         return Order(ticker, qty, side, meta=meta)
 
     # ATM option ~30 DTE. Premium approximated as a fixed fraction of spot for
-    # the synthetic demo (documented simplification; see docs/book-reconciliations.md).
+    # the synthetic demo (documented simplification; see ERRATA.md).
     premium = 0.035 * price
     contracts = int(risk_dollars / (OPTION_STOP * premium * 100))
     if contracts < 1:

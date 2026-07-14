@@ -7,7 +7,7 @@ strategy — the rules are mechanical (ch06 placement table).
 Note on the Donchian window: the chapter's prose defines the entry against the
 highest level of the *prior* 20 trading days, so the rolling max is shifted by
 one bar here (a same-bar close can never exceed a rolling max that includes
-its own high). See docs/book-reconciliations.md.
+its own high). See ERRATA.md.
 
 Educational reference implementation. Not financial advice. See DISCLAIMER.md.
 Paper mode by default; live requires the ch02 set_live_mode() code change.

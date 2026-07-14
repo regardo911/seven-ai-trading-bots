@@ -27,4 +27,4 @@ paper for 30 days at Stage-1 sizing, then climb the ch12 ladder. Never
 "swap in and deploy live."
 
 ---
-*Educational reference implementation; spread pricing in the offline demo is a simplified credit model (see [book-reconciliations.md](../book-reconciliations.md)). Not financial advice. See [DISCLAIMER.md](../../DISCLAIMER.md).*
+*Educational reference implementation; spread pricing in the offline demo is a simplified credit model (see [ERRATA.md](../../ERRATA.md)). Not financial advice. See [DISCLAIMER.md](../../DISCLAIMER.md).*

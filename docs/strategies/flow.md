@@ -50,7 +50,7 @@ rejecting 30–50% of would-be entries is the honesty check the book demands.
 Chapter 7's printed Layer-1 formula is internally inconsistent with its own
 worked answer ("Four contracts", stated twice) — as printed it yields 0.4 → 0
 contracts and the bot would never trade. This implementation honors the worked
-example; the full analysis is in [book-reconciliations.md](../book-reconciliations.md). Option P&L in the offline
+example; the full analysis is in [ERRATA.md](../../ERRATA.md). Option P&L in the offline
 backtest uses a delta+theta approximation (documented there too).
 
 ---

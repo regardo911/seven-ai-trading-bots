@@ -50,7 +50,7 @@ def signal(date: pd.Timestamp, open_spreads: int = 0,
     spx_bars = data.get_bars("SPX", end=str(date.date()))
     spx = float(spx_bars["close"].iloc[-1])
     width = SPREAD_WIDTH_PCT * spx
-    credit = CREDIT_FRACTION * width      # synthetic pricing (see docs/book-reconciliations.md)
+    credit = CREDIT_FRACTION * width      # synthetic pricing (see ERRATA.md)
     max_loss_per_spread = (width - credit) * 100.0
     contracts = int((capital * MAX_LOSS_PCT) / max_loss_per_spread)
     if contracts < 1:

@@ -5,6 +5,12 @@ All notable changes to this project are documented here.
 ## [0.1.2] — 2026-07-14
 
 ### Added
+- **`ERRATA.md`** — a living correction layer for the frozen book. Two parts:
+  *corrections* (the printed book is wrong — the ch03 Donchian window, the ch07
+  delta-budget formula, and the ch06/ch11 disagreement over which bots call
+  Claude at runtime) and *reconciliation* (where this offline repo necessarily
+  differs from the book's snippets). Linked from the README and from the code
+  comments that used to point at an internal note.
 - **Staged first-run path.** `START_HERE.md` plus new `make` targets: `check`
   (chassis smoke test), `demo-ch03` (`examples/demo_ch03.py` — one trend BUY and
   one WAIT day, with the numbers behind each), `demo-ch09`

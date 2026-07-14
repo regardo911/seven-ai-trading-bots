@@ -51,4 +51,4 @@ cutoff on Anthropic's models page; the synthetic timeline uses 2025-01-01).
    IV moves intraday on earnings days.
 
 ---
-*Educational reference implementation on synthetic sample data. The option premium in the offline demo is a fixed-fraction model (see [book-reconciliations.md](../book-reconciliations.md)). Not financial advice. See [DISCLAIMER.md](../../DISCLAIMER.md).*
+*Educational reference implementation on synthetic sample data. The option premium in the offline demo is a fixed-fraction model (see [ERRATA.md](../../ERRATA.md)). Not financial advice. See [DISCLAIMER.md](../../DISCLAIMER.md).*

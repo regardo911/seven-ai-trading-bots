@@ -54,7 +54,7 @@ deliberately excludes choppy regimes.
 
 - The chapter's prose defines the breakout against the *prior* 20 days; the
   rolling max is therefore shifted one bar (a close can never exceed a rolling
-  max that includes its own high). See [book-reconciliations.md](../book-reconciliations.md).
+  max that includes its own high). See [ERRATA.md](../../ERRATA.md).
 - ATR here is the simple rolling mean of true range, exactly as the book's
   snippet computes it.
 

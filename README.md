@@ -165,6 +165,14 @@ the full suite plus the offline demo — proving the zero-key claim on every pus
 The test suite includes a no-network guard, a `--live`-is-refused test, and the
 book's worked examples as assertions (8 shares; 4 contracts; $0.36/trade).
 
+## Errata & reconciliation
+
+The printed book is a fixed snapshot; this repo is live. Where the two disagree,
+**[ERRATA.md](ERRATA.md) is the tie-breaker** — confirmed corrections to the
+book (the ch03 Donchian window, the ch07 delta-budget formula, the ch06/ch11
+runtime-inference count) plus the places this repo has moved past the pages.
+Repo code changes are in [CHANGELOG.md](CHANGELOG.md).
+
 ## Contributing
 
 Fixes and clarity welcome; new strategies are out of scope — this mirrors the

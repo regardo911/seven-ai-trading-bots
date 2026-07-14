@@ -40,7 +40,7 @@ def position_size_by_delta(
     0.4 -> int -> 0 contracts and contradicts the chapter's own worked answer
     ("Four contracts. The bot does not exceed it."), stated twice. This
     implementation honors the canonical worked example (budget = 200 delta
-    points per $10K at the 0.20 budget). See docs/book-reconciliations.md.
+    points per $10K at the 0.20 budget). See ERRATA.md.
     """
     delta_points_budget = (account_equity / 10000.0) * delta_budget_per_10k * 1000.0
     max_contracts = int(delta_points_budget / (delta_per_contract * 100.0))
