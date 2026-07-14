@@ -1,0 +1,16 @@
+# Pinned per the book's Appendix A2 ("Common dependencies"), plus the ch02
+# framework extras. These are MINIMUM versions the framework was written
+# against — check PyPI for the latest patch.
+#
+# NOTE: only pandas/numpy/statsmodels/requests are required for the offline
+# demo and tests. The rest enable real brokers / real Claude / real data and
+# are imported lazily. `pip install -e .` installs just the core.
+anthropic>=0.97.0
+alpaca-py>=0.43.4
+ib_async>=2.0.1
+ccxt>=4.5.51
+yfinance>=1.3.0
+statsmodels>=0.14
+pandas>=2.0
+numpy>=1.26
+requests>=2.31

@@ -1,0 +1,24 @@
+# Environments & secrets — never commit credentials
+.env
+.venv/
+venv/
+
+# Python build/runtime artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+
+# Local data & generated results (one committed sample is kept)
+data/cache/*
+!data/cache/.gitkeep
+backtest/results/*.json
+!backtest/results/sample_trend.json
+backtest/results/realism_pass/*
+!backtest/results/realism_pass/.gitkeep
+
+# OS noise
+.DS_Store

@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seven-ai-trading-bots"
+version = "0.1.1"
+description = "Seven AI trading bots on one disciplined chassis — educational companion code to the book. Not financial advice."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "youcanbuildthings.com" }]
+keywords = ["trading", "algorithmic-trading", "claude", "backtesting", "education"]
+
+# Core dependencies — the offline demo, tests, and CI run on these alone.
+dependencies = [
+    "pandas>=2.0",
+    "numpy>=1.26",
+    "statsmodels>=0.14",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+# Optional upgrades. NONE of these are required for the offline demo.
+llm = ["anthropic>=0.97.0"]                # real Claude classification (else offline stub)
+brokers = ["alpaca-py>=0.43.4", "ib_async>=2.0.1", "ccxt>=4.5.51"]
+data = ["yfinance>=1.3.0"]                 # --live-data real bars (else synthetic)
+viz = ["matplotlib>=3.8"]                  # regenerate docs/images charts only
+dev = ["pytest>=8.0", "ruff>=0.5"]
+full = [
+    "anthropic>=0.97.0",
+    "alpaca-py>=0.43.4",
+    "ib_async>=2.0.1",
+    "ccxt>=4.5.51",
+    "yfinance>=1.3.0",
+]
+
+[project.urls]
+Homepage = "https://youcanbuildthings.com/books/claude-7-trading-bots"
+Repository = "https://github.com/regardo911/seven-ai-trading-bots"
+
+[tool.setuptools]
+packages = ["framework", "strategies", "strategies.bench", "backtest"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+# The ch05 Claude prompt template is book-verbatim; one line exceeds 100 chars.
+"strategies/earnings.py" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
