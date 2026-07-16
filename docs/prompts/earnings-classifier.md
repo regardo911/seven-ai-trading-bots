@@ -1,4 +1,4 @@
-# Prompt — Earnings Transcript Classifier (Chapter 5)
+# Prompt: Earnings Transcript Classifier (Chapter 5)
 
 **Used by:** `strategies/earnings.py::classify_transcript` · **Model:** `claude-sonnet-4-6` · **max_tokens:** 200
 

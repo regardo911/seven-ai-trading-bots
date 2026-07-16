@@ -6,8 +6,8 @@
 > recommendation to buy, sell, or hold any security, derivative, cryptocurrency, or other
 > instrument. Trading and investing carry substantial risk of loss, including the loss of more
 > than your initial capital when using margin, futures, options, or leveraged crypto. Past or
-> backtested performance — including any figures produced by this code on synthetic sample
-> data — does **not** predict future results and is **not** indicative of any real trading
+> backtested performance, including any figures produced by this code on synthetic sample
+> data, does **not** predict future results and is **not** indicative of any real trading
 > outcome. The authors and contributors make **no warranty** of any kind and accept **no
 > liability** for any loss arising from use of this software. **The software defaults to paper
 > (simulated) mode; enabling live trading is entirely at your own risk.** You are solely

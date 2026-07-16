@@ -2,7 +2,7 @@
 
 **Seven trading bots, one disciplined chassis. Claude builds the bot; deterministic Python rules execute; you own the strategy.**
 
-Companion reference implementation for the book [**Use Claude to Build 7 AI Trading Bots**](https://youcanbuildthings.com/books/claude-7-trading-bots) (AI Trading Bot Playbooks, Book 2) from [youcanbuildthings.com](https://youcanbuildthings.com) — the repository its Appendix A4 points to.
+Companion reference implementation for the book [**Use Claude to Build 7 AI Trading Bots**](https://youcanbuildthings.com/books/claude-7-trading-bots) (AI Trading Bot Playbooks, Book 2) from [youcanbuildthings.com](https://youcanbuildthings.com), the repository its Appendix A4 points to.
 
 [![ci](https://github.com/regardo911/seven-ai-trading-bots/actions/workflows/ci.yml/badge.svg)](https://github.com/regardo911/seven-ai-trading-bots/actions/workflows/ci.yml)
 ![python](https://img.shields.io/badge/python-3.11%2B-blue)
@@ -58,7 +58,7 @@ Then `make demo-ch03` shows the Chapter 3 rule making one clear decision each wa
 
 That is the whole idea in one screen: Claude built the rule, deterministic
 Python decides BUY vs WAIT, and you can read exactly why. `make demo` runs all
-seven bots at once (the book's Appendix A4 command) — a full plumbing check, but
+seven bots at once (the book's Appendix A4 command), a full plumbing check, but
 its numbers are **synthetic sample data, not an edge**; prefer the staged path
 above for your first read.
 
@@ -83,8 +83,8 @@ above for your first read.
 Claude classifies context (headlines, transcripts) into strict JSON. Python
 computes everything numeric: `position size = risk dollars / stop distance`,
 stops, gates, netting. Five of the seven bots make **zero** inference calls on
-the runtime trade path; the two that call Claude per trade — **PEAD** (ch05) and
-**News** (ch06) — have their token cost (~$0.018/inference) netted out of every
+the runtime trade path; the two that call Claude per trade, **PEAD** (ch05) and
+**News** (ch06), have their token cost (~$0.018/inference) netted out of every
 backtest by the realism layer. The allocator (ch09) uses Claude only in weekly
 governance review, off the trade path. Full picture with diagram:
 [docs/architecture.md](docs/architecture.md).
@@ -116,7 +116,7 @@ python tools/hallucination_check.py backtest/results/sample_trend.json
 
 Every command runs offline against deterministic synthetic fixtures. Backtest
 JSONs land in `backtest/results/` clearly labeled
-`"synthetic_data": true` — **illustrative mechanics, not performance claims.**
+`"synthetic_data": true`: **illustrative mechanics, not performance claims.**
 
 ## Going live safely (read this twice)
 
@@ -124,7 +124,7 @@ This repo **cannot** go live by accident:
 
 1. `framework.live_mode` defaults to `False`. Every order path checks it.
 2. The only way to flip it is a **code change**:
-   `framework.set_live_mode(True, confirm="I_HAVE_REVIEWED_THIS")` — not a
+   `framework.set_live_mode(True, confirm="I_HAVE_REVIEWED_THIS")`: not a
    config file, not an env var, not a CLI flag. `--live` alone prints a warning
    and exits.
 3. Real credentials (`.env`) and the optional broker SDKs
@@ -132,14 +132,14 @@ This repo **cannot** go live by accident:
 
 The book's chapter 12 ladder is the process: **Stage 1** paper-only, all 7,
 30 days → **Stage 2** live at 1% of target capital → **Stage 3** 5% →
-**Stage 4** 25% for 60 days → **Stage 5** full capital with monthly review —
+**Stage 4** 25% for 60 days → **Stage 5** full capital with monthly review,
 each rung with explicit go/no-go criteria (trade counts, Sharpe floors,
 live-vs-paper gap ≤ 25%, breaker drills). Skipping rungs is how paper heroes
 blow up live accounts. Your capital, your jurisdiction, your decision.
 
 ## Configuration
 
-Copy `.env.example` → `.env`. **Every variable is optional** — the demo needs none.
+Copy `.env.example` → `.env`. **Every variable is optional**: the demo needs none.
 
 | Variable | Unlocks | Without it |
 |---|---|---|
@@ -161,30 +161,30 @@ make lint    # ruff
 ```
 
 CI (GitHub Actions, Python 3.11/3.12) installs **only the core deps** and runs
-the full suite plus the offline demo — proving the zero-key claim on every push.
+the full suite plus the offline demo, proving the zero-key claim on every push.
 The test suite includes a no-network guard, a `--live`-is-refused test, and the
 book's worked examples as assertions (8 shares; 4 contracts; $0.36/trade).
 
 ## Errata & reconciliation
 
 The printed book is a fixed snapshot; this repo is live. Where the two disagree,
-**[ERRATA.md](ERRATA.md) is the tie-breaker** — confirmed corrections to the
+**[ERRATA.md](ERRATA.md) is the tie-breaker**: confirmed corrections to the
 book (the ch03 Donchian window, the ch07 delta-budget formula, the ch06/ch11
 runtime-inference count) plus the places this repo has moved past the pages.
 Repo code changes are in [CHANGELOG.md](CHANGELOG.md).
 
 ## Contributing
 
-Fixes and clarity welcome; new strategies are out of scope — this mirrors the
+Fixes and clarity welcome; new strategies are out of scope. This mirrors the
 book on purpose. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Further reading (Appendix C)
 
-- [ccxt documentation](https://github.com/ccxt/ccxt) — authoritative for the crypto wiring
-- [QuantConnect LEAN](https://github.com/quantconnect/Lean) — the natural upgrade path if you outgrow this chassis
-- Marcos López de Prado, *Advances in Financial Machine Learning* — the walk-forward authority (ch10)
-- Rob Hyndman, [*Forecasting: Principles and Practice*](https://otexts.com/fpp3/) — free, the time-series methodology bible
-- [Anthropic's Claude docs](https://docs.claude.com) + [MCP](https://modelcontextprotocol.io) — pricing/models/SDK shift; check periodically
+- [ccxt documentation](https://github.com/ccxt/ccxt), authoritative for the crypto wiring
+- [QuantConnect LEAN](https://github.com/quantconnect/Lean), the natural upgrade path if you outgrow this chassis
+- Marcos López de Prado, *Advances in Financial Machine Learning*, the walk-forward authority (ch10)
+- Rob Hyndman, [*Forecasting: Principles and Practice*](https://otexts.com/fpp3/): free, the time-series methodology bible
+- [Anthropic's Claude docs](https://docs.claude.com) + [MCP](https://modelcontextprotocol.io), pricing/models/SDK shift; check periodically
 - r/algotrading · r/quant · Quantitative Finance Stack Exchange · NBER/SSRN for bench-strategy research
 
 ## License
@@ -194,6 +194,6 @@ book on purpose. See [CONTRIBUTING.md](CONTRIBUTING.md).
 ---
 
 *This project is educational software accompanying a book. It is **not**
-financial advice, **not** a trading service, and **not** a performance claim —
+financial advice, **not** a trading service, and **not** a performance claim;
 all bundled results are computed on synthetic sample data. Markets can take
 your money faster than any book can explain why.*

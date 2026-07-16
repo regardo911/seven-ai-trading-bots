@@ -120,7 +120,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     print("[cash-carry] scanning synthetic funding snapshots "
-          "(exchange API keys unlock live snapshots; NEVER enable withdrawal "
+          "(exchange API keys give access to live snapshots; NEVER enable withdrawal "
           "permissions on those keys - ch08)")
     brokers = {e: CryptoBroker(exchange=e, paper=paper) for e in exchanges}
     open_positions: list[dict] = []

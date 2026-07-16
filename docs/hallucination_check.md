@@ -1,7 +1,7 @@
 # The Claude-Hallucination Detection Checklist (Chapter 10)
 
 > "It looked great until I got Claude to admit it was inserting imaginary
-> volatility numbers." — the named failure mode this checklist prevents
+> volatility numbers," the named failure mode this checklist prevents
 
 Run all 8 items on every strategy **before** it touches the ch12 paper-to-live
 ladder. A backtest that passes is honest; one that fails any item has a known
@@ -12,7 +12,7 @@ python tools/hallucination_check.py backtest/results/sample_trend.json
 ```
 
 (the tool recomputes Sharpe / drawdown / win rate / EV from the raw arrays in
-plain NumPy — deliberately independent code — and diffs them against the
+plain NumPy, deliberately independent code, and diffs them against the
 reported metrics.)
 
 ## The checklist (book-verbatim)
@@ -39,7 +39,7 @@ reported metrics.)
 
 ## Related discipline in this repo
 
-- Win rate is never the headline metric — expected value per trade is
+- Win rate is never the headline metric: expected value per trade is
   (`expected_value_per_trade` in every results JSON; the 68%-win-rate paradox
   is a losing bot).
 - Walk-forward only, never k-fold, for anything time-series

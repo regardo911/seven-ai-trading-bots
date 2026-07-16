@@ -33,6 +33,8 @@ make lint
 The test suite is deliberately offline and deterministic. If your change makes a test require
 network access or an API key, the change is wrong for this repo.
 
+Extending the internals? Skim [GOTCHAS.md](GOTCHAS.md) first: the traps we already hit.
+
 ## Pull requests
 
 1. One logical change per PR.
@@ -46,4 +48,4 @@ Be kind, be specific, assume good faith.
 
 ---
 
-*Everything here is educational. Nothing is financial advice — see [DISCLAIMER.md](DISCLAIMER.md).*
+*Everything here is educational. Nothing is financial advice: see [DISCLAIMER.md](DISCLAIMER.md).*

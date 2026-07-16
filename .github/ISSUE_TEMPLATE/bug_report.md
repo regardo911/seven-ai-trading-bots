@@ -18,6 +18,6 @@ paste here
 - OS:
 - Python version:
 - Install method: `pip install -e .` (core) / `pip install -r requirements.txt` (full)
-- API keys configured? (never paste keys — yes/no per provider)
+- API keys configured? (never paste keys, yes/no per provider)
 
-**Book reference (if applicable)** — chapter/section this relates to
+**Book reference (if applicable)**: chapter/section this relates to

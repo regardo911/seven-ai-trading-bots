@@ -1,4 +1,4 @@
-# Prompt — Market Headline Classifier (Chapter 6)
+# Prompt: Market Headline Classifier (Chapter 6)
 
 **Used by:** `strategies/news.py::classify_headline` · **Model:** `claude-sonnet-4-6` · **max_tokens:** 200
 
@@ -31,8 +31,8 @@ HEADLINE:
 
 - **The asset list is closed.** Five liquid instruments the framework already
   routes (SPY/QQQ/GLD → Alpaca, EUR/USD → IBKR, BTC → ccxt). Constraining the
-  schema prevents Claude from suggesting trades the chassis can't place —
-  adding coverage is a code change, not a classification.
+  schema prevents Claude from suggesting trades the chassis can't place.
+  Adding coverage is a code change, not a classification.
 - **`rationale` is for the audit trail, not the trade.** Nothing downstream
   parses it; it exists so a human can review why the bot acted.
 - **The gate lives outside the prompt.** `should_trade()` (deterministic)
@@ -46,12 +46,12 @@ gold → GLD, bitcoin → BTC, euro/ECB → EUR/USD, tech → QQQ), scores direc
 from bullish/bearish cue counts, and grades impact (Fed-level cues score
 highest). Deterministic, schema-identical, announced once.
 
-## Cost (ch11 math — the numbers the book insists on)
+## Cost (ch11 math, the numbers the book insists on)
 
 ~5,000 input + 200 output tokens → **$0.018 per inference** (not $0.025, not
 $0.05). A production news trade involves ~20 inferences (entry + re-evals over
 the 2–24h window) → **$0.36 per trade**. At 50–100 inferences/day that's
-$1–2/day — small absolutely, decisive on thin edges. The realism layer nets it
+$1–2/day: small absolutely, decisive on thin edges. The realism layer nets it
 out of every backtest here.
 
 ---

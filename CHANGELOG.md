@@ -2,24 +2,24 @@
 
 All notable changes to this project are documented here.
 
-## [0.1.2] — 2026-07-14
+## [0.1.2] - 2026-07-14
 
 ### Added
-- **`ERRATA.md`** — a living correction layer for the frozen book. Two parts:
-  *corrections* (the printed book is wrong — the ch03 Donchian window, the ch07
+- **`ERRATA.md`**: a living correction layer for the frozen book. Two parts:
+  *corrections* (the printed book is wrong: the ch03 Donchian window, the ch07
   delta-budget formula, and the ch06/ch11 disagreement over which bots call
   Claude at runtime) and *reconciliation* (where this offline repo necessarily
   differs from the book's snippets). Linked from the README and from the code
   comments that used to point at an internal note.
 - **Staged first-run path.** `START_HERE.md` plus new `make` targets: `check`
-  (chassis smoke test), `demo-ch03` (`examples/demo_ch03.py` — one trend BUY and
+  (chassis smoke test), `demo-ch03` (`examples/demo_ch03.py`, one trend BUY and
   one WAIT day, with the numbers behind each), `demo-ch09`
-  (`examples/demo_ch09.py` — the allocator with a per-strategy cap and a
+  (`examples/demo_ch09.py`, the allocator with a per-strategy cap and a
   concentration warning), and `realism` (gross-to-net across all strategies).
   Your first success now teaches one clear mechanic instead of the whole portfolio.
 - **Positive armed-live routing tests** (`tests/test_live_routing.py`): with
   live mode armed in source, orders route to the broker SDKs, proven against fake
-  adapters — no network, no credentials.
+  adapters: no network, no credentials.
 
 ### Changed
 - **Live routing is now wired end to end.** `broker_for()` threads the paper flag,
@@ -35,7 +35,7 @@ All notable changes to this project are documented here.
   gained a "what to notice / what would break this" caption, and the allocator
   chart calls out concentration risk.
 
-## [0.1.1] — 2026-07-06
+## [0.1.1] - 2026-07-06
 
 ### Added
 - Visual explanation for every strategy: 10 charts in `docs/images/` (validated
@@ -48,9 +48,9 @@ All notable changes to this project are documented here.
   (README, LICENSE, packaging metadata, GitHub About).
 - README references DISCLAIMER.md exactly once (the top callout).
 
-## [0.1.0] — 2026-07-06
+## [0.1.0] - 2026-07-06
 
-Initial public release — the reference implementation promised by Appendix A4 of
+Initial public release, the reference implementation promised by Appendix A4 of
 *Use Claude to Build 7 AI Trading Bots*.
 
 ### Added

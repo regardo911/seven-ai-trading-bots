@@ -10,11 +10,11 @@ changes to the repo are logged in [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Corrections (the printed book is wrong)
 
-### Chapters 6 & 11: which bots call Claude at runtime — the book contradicts itself
+### Chapters 6 & 11: which bots call Claude at runtime, the book contradicts itself
 
 Chapter 6 (§"where each of the seven") says the two runtime-inference strategies
 are "**news, allocator**." Chapter 11 says "**Two (PEAD, allocator)** use Claude
-lightly. One (**news**) uses Claude heavily" — which names *three* bots, not two,
+lightly. One (**news**) uses Claude heavily," which names *three* bots, not two,
 and disagrees with Chapter 6 about which two. Both cannot be right.
 
 The correct classification is the one Chapter 9 itself states ("the allocator
@@ -23,8 +23,8 @@ supervision, not the millisecond-by-millisecond trade execution"):
 
 - **Two** bots call Claude on the runtime **trade path**: **PEAD** (ch05, ~1
   inference per earnings event) and **News** (ch06, heavy).
-- The **allocator** (ch09) calls Claude *only* in weekly governance review — off
-  the trade path — so it makes **zero per-trade inferences**.
+- The **allocator** (ch09) calls Claude *only* in weekly governance review, off
+  the trade path, so it makes **zero per-trade inferences**.
 - **Five of the seven** therefore have zero trade-path inference: trend, pairs,
   flow, cash-and-carry, and the allocator.
 
@@ -34,8 +34,8 @@ supervision, not the millisecond-by-millisecond trade execution"):
 
 The printed snippet computes the rolling max **including the current bar**, so
 `close > donchian_high_20` is never true (a close can't exceed a window that
-already contains its own high). The chapter's prose is right — "the highest high
-of the **prior** 20 trading days" — so the code shifts the rolling max by one bar
+already contains its own high). The chapter's prose is right, "the highest high
+of the **prior** 20 trading days," so the code shifts the rolling max by one bar
 (`.shift(1)`). See `strategies/trend.py`.
 
 ### Chapter 7: the delta-budget formula yields zero, but the worked answer is four
@@ -51,7 +51,7 @@ caps (delta budget ∧ gamma headroom ∧ DTE multiplier ∧ 5% premium gross). 
 
 ## Reconciling the book with the current repo
 
-These are not book errors — they are places where a runnable, offline,
+These are not book errors. They are places where a runnable, offline,
 zero-key repository necessarily differs from the book's illustrative snippets.
 When a snippet and the book's own worked example disagree, the worked example
 wins, and the code says so at the point it matters.
@@ -76,7 +76,7 @@ breaker demonstrably fires). OHLCV is generated at import; the text fixtures
 ### News novelty hash
 
 Approximates "top-5 nouns and verbs" with a stopword-filtered top-5
-content-token hash — the "simple hash" ch06 itself recommends starting with.
+content-token hash, the "simple hash" ch06 itself recommends starting with.
 Because the fixture stream is curated, the CLI notes that a raw production feed
 would reject ~70–80% of headlines.
 
@@ -87,18 +87,18 @@ events observable at daily-bar granularity in the allocator demo.
 
 ### Basis-trade order shape
 
-ch08's `signal()` returns a single `Order` whose `meta` carries both legs — the
+ch08's `signal()` returns a single `Order` whose `meta` carries both legs, the
 book's signature is `Optional[Order]` while the trade itself has two legs (spot
 long + perp short).
 
 ### Live-order paths
 
-All three broker live calls — Alpaca (alpaca-py), IBKR (ib_async), crypto
-(ccxt) — are implemented behind lazy imports and the full ch02 safety gate, and
+All three broker live calls, Alpaca (alpaca-py), IBKR (ib_async), crypto
+(ccxt), are implemented behind lazy imports and the full ch02 safety gate, and
 are exercised by positive armed-live tests using fake adapters (no network, no
 credentials). Real trading still needs Gateway/credentials/SDKs, and the IBKR
 futures contract month + listing exchange must be confirmed per Appendix A5.
-Paper mode — the default and primary supported surface — never touches any of
+Paper mode, the default and primary supported surface, never touches any of
 them.
 
 ### Fees the book refuses to hard-code
@@ -110,5 +110,5 @@ name.
 ---
 
 **Every number in this repository is computed on synthetic sample data. It is
-illustrative of the mechanics only — not real, not historical, not predictive.
+illustrative of the mechanics only: not real, not historical, not predictive.
 See [DISCLAIMER.md](DISCLAIMER.md).**

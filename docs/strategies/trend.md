@@ -1,25 +1,25 @@
-# Strategy 1 — Trend Following (Chapter 3)
+# Strategy 1: Trend Following (Chapter 3)
 
 **Module:** `strategies/trend.py` · **Claude at runtime:** none (mechanical rules)
 
 ![SPY with the Donchian-20 band and 200-day SMA overlaid; green triangles mark breakout entries above the SMA filter, red triangles mark 3xATR trailing-stop exits](../images/trend_donchian.png)
-*All three rules on one chart — regenerate with `python tools/generate_docs_charts.py`.*
+*All three rules on one chart, regenerate with `python tools/generate_docs_charts.py`.*
 
-**Notice** — entry triangles appear *only* where price breaks the prior-20-day high **and** sits above the 200-day SMA. Most of the series carries no marker at all; the empty stretches are the strategy working, not idling.
-**Breaks if** — you drop the 200-SMA regime filter: breakouts then fire inside downtrends too, and the losers on the wrong side of the trend erase the winners. The filter is the edge, not decoration.
+**Notice:** entry triangles appear *only* where price breaks the prior-20-day high **and** sits above the 200-day SMA. Most of the series carries no marker at all; the empty stretches are the strategy working, not idling.
+**Breaks if:** you drop the 200-SMA regime filter: breakouts then fire inside downtrends too, and the losers on the wrong side of the trend erase the winners. The filter is the edge, not decoration.
 
 Buy what just made a new high, inside a long-term uptrend, and trail a wide stop.
-Trend persistence is a behavioral anomaly — people anchor, institutions rebalance
-slowly — and it survives publication because the behavior generating it doesn't stop.
+Trend persistence is a behavioral anomaly, people anchor, institutions rebalance
+slowly, and it survives publication because the behavior generating it doesn't stop.
 
 ## Rules (all three, verbatim from the book)
 
 | Rule | Value |
 |---|---|
 | Entry | close > highest high of the **prior 20** trading days (Donchian breakout) |
-| Regime filter | close > **200-day SMA** — long entries only above it |
+| Regime filter | close > **200-day SMA**, long entries only above it |
 | Exit | trailing stop at **3× ATR(14)** below the high-water mark; the stop **only ratchets up** |
-| Instruments | SPY, QQQ (Alpaca) · ES, GC (IBKR — the broker router handles it) |
+| Instruments | SPY, QQQ (Alpaca) · ES, GC (IBKR, the broker router handles it) |
 | Sizing | `position size = risk dollars / stop distance`, risk **1%** of equity per trade |
 
 Worked example (the one the book says to memorize): $10,000 account, 1% risk = $100.
@@ -38,7 +38,7 @@ Sample paper-scan output:
 [trend] SPY: no signal (close 579.61, 20d-high 612.46, 200-SMA 542.52)
 ```
 
-"No signal" for weeks at a time is **normal** — the Donchian + SMA pair
+"No signal" for weeks at a time is **normal**: the Donchian + SMA pair
 deliberately excludes choppy regimes.
 
 ## Failure modes the book warns about
